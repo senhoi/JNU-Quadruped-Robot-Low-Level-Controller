@@ -1,0 +1,6 @@
+# Ingore file named
+
+# Ingore folder named
+OBJ/
+# Ingore all *.* files
+*.txt
