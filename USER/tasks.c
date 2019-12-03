@@ -31,7 +31,7 @@ void init_task_hardware(void)
     uart_init(115200);
     LED_Init();
     LCD_Init();
-    //CAN1_Mode_Init(CAN_SJW_1TQ, CAN_BS2_6TQ, CAN_BS1_8TQ, 6, CAN_MODE_LOOPBACK);
+    CAN1_Mode_Init(CAN_SJW_1TQ, CAN_BS2_6TQ, CAN_BS1_8TQ, 3, CAN_MODE_NORMAL);
     printf("Initialized successfully\r\n");
 }
 
@@ -77,16 +77,16 @@ void init_task_innfos(void)
     CAN_Port1.Send = CAN1_Send_Msg; //CAN1端口发送函数
 
     /* 装载执行器的ID与所使用的CAN端口号 */
-    setupActuators(3, &CAN_Port1); //ID1 绑定CAN1
+    setupActuators(2, &CAN_Port1); //ID1 绑定CAN1
 
     /* 获取ID1和2的参数句柄 */
-    pSCA_ID3 = getInstance(3);
+    pSCA_ID2 = getInstance(2);
 
     /* 启动所有执行器 */
     enableAllActuators();
 
     /* 设置驱动器工作模式 */
-    activateActuatorMode(0x03, SCA_Current_Mode, Block);
+    activateActuatorMode(0x02, SCA_Current_Mode, Block);
 }
 
 /**
@@ -134,7 +134,7 @@ void loop_task(void)
 
     while (1)
     {
-        ctrl_task();
+        //ctrl_task();
         /*c++;
         t = Time_s + Time_ms / 1000.0f;
         if (t > 3.0f)
