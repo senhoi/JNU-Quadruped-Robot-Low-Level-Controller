@@ -4,3 +4,4 @@
 OBJ/
 # Ingore all *.* files
 *.txt
+*.TMP

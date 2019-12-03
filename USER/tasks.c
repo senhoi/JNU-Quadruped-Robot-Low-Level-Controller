@@ -25,13 +25,14 @@ void init_task(void)
 */
 void init_task_hardware(void)
 {
-    HAL_Init(); 
-    Stm32_Clock_Init(360,25,2,8);
+    HAL_Init();
+    Stm32_Clock_Init(360, 25, 2, 8);
     delay_init(180);
     uart_init(115200);
     LED_Init();
     LCD_Init();
-		CAN1_Mode_Init(CAN_SJW_1TQ,CAN_BS2_6TQ,CAN_BS1_8TQ,6,CAN_MODE_LOOPBACK); //CAN³õÊ¼»¯,²¨ÌØÂÊ500Kbps 
+    //CAN1_Mode_Init(CAN_SJW_1TQ, CAN_BS2_6TQ, CAN_BS1_8TQ, 6, CAN_MODE_LOOPBACK);
+    printf("Initialized successfully\r\n");
 }
 
 /**
@@ -51,7 +52,7 @@ void init_task_controller(void)
     MOTOR_set_pos_loop_gain(&SCA[0], 1.0f, 0.0f, 0.0f);
     MOTOR_set_pos_loop_limit(&SCA[0], 0.0f, 0.0f);
 
-    MOTOR_set_vel_loop_gain(&SCA[1], 1.0f, 0.0f);
+    /*MOTOR_set_vel_loop_gain(&SCA[1], 1.0f, 0.0f);
     MOTOR_set_vel_loop_limit(&SCA[1], 0.0f, 0.0f);
     MOTOR_set_pos_loop_gain(&SCA[1], 1.0f, 0.0f, 0.0f);
     MOTOR_set_pos_loop_limit(&SCA[1], 0.0f, 0.0f);
@@ -59,7 +60,7 @@ void init_task_controller(void)
     MOTOR_set_vel_loop_gain(&SCA[2], 1.0f, 0.0f);
     MOTOR_set_vel_loop_limit(&SCA[2], 0.0f, 0.0f);
     MOTOR_set_pos_loop_gain(&SCA[2], 1.0f, 0.0f, 0.0f);
-    MOTOR_set_pos_loop_limit(&SCA[2], 0.0f, 0.0f);
+    MOTOR_set_pos_loop_limit(&SCA[2], 0.0f, 0.0f);*/
 }
 
 /**
