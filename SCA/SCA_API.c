@@ -278,8 +278,9 @@ void enableAllActuators()
 	uint8_t i;
 
 	for (i = 0; i < SCA_NUM_USE; i++)
-		enableActuator(SCA_Handler_List[i].ID);
+		printf("DEBUG:SCA_API:%d\r\n", enableActuator(SCA_Handler_List[i].ID));
 }
+
 
 /**
   * @功	能	失能所有执行器，阻塞式
